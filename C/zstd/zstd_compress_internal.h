@@ -18,7 +18,7 @@
 /*-*************************************
 *  Dependencies
 ***************************************/
-#include "../common/zstd_internal.h"
+#include "zstd_internal.h"
 #include "zstd_cwksp.h"
 #ifdef ZSTD_MULTITHREAD
 #  include "zstdmt_compress.h"

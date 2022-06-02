@@ -16,7 +16,7 @@
 #include <string.h>    /* memcpy */
 
 #include "zstd_v04.h"
-#include "../common/error_private.h"
+#include "error_private.h"
 
 
 /* ******************************************************************
@@ -78,7 +78,7 @@ extern "C" {
 /*-*************************************
 *  Debug
 ***************************************/
-#include "../common/debug.h"
+#include "debug.h"
 #ifndef assert
 #  define assert(condition) ((void)0)
 #endif

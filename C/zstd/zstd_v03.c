@@ -11,7 +11,7 @@
 
 #include <stddef.h>    /* size_t, ptrdiff_t */
 #include "zstd_v03.h"
-#include "../common/error_private.h"
+#include "error_private.h"
 
 
 /******************************************

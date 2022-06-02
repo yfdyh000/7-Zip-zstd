@@ -13,7 +13,7 @@
  ***************************************/
 #include "zstd_compress_superblock.h"
 
-#include "../common/zstd_internal.h"  /* ZSTD_getSequenceLength */
+#include "zstd_internal.h"  /* ZSTD_getSequenceLength */
 #include "hist.h"                     /* HIST_countFast_wksp */
 #include "zstd_compress_internal.h"   /* ZSTD_[huf|fse|entropy]CTablesMetadata_t */
 #include "zstd_compress_sequences.h"

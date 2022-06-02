@@ -23,15 +23,15 @@
 /* **************************************************************
 *  Includes
 ****************************************************************/
-#include "../common/zstd_deps.h"     /* ZSTD_memcpy, ZSTD_memset */
-#include "../common/compiler.h"
-#include "../common/bitstream.h"
+#include "zstd_deps.h"     /* ZSTD_memcpy, ZSTD_memset */
+#include "compiler.h"
+#include "bitstream.h"
 #include "hist.h"
 #define FSE_STATIC_LINKING_ONLY   /* FSE_optimalTableLog_internal */
-#include "../common/fse.h"        /* header compression */
+#include "fse.h"        /* header compression */
 #define HUF_STATIC_LINKING_ONLY
-#include "../common/huf.h"
-#include "../common/error_private.h"
+#include "huf.h"
+#include "error_private.h"
 
 
 /* **************************************************************

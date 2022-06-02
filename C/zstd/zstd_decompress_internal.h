@@ -19,8 +19,8 @@
 /*-*******************************************************
  *  Dependencies
  *********************************************************/
-#include "../common/mem.h"             /* BYTE, U16, U32 */
-#include "../common/zstd_internal.h"   /* constants : MaxLL, MaxML, MaxOff, LLFSELog, etc. */
+#include "mem.h"             /* BYTE, U16, U32 */
+#include "zstd_internal.h"   /* constants : MaxLL, MaxML, MaxOff, LLFSELog, etc. */
 
 
 

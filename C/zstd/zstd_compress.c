@@ -11,13 +11,13 @@
 /*-*************************************
 *  Dependencies
 ***************************************/
-#include "../common/zstd_deps.h"  /* INT_MAX, ZSTD_memset, ZSTD_memcpy */
-#include "../common/mem.h"
+#include "zstd_deps.h"  /* INT_MAX, ZSTD_memset, ZSTD_memcpy */
+#include "mem.h"
 #include "hist.h"           /* HIST_countFast_wksp */
 #define FSE_STATIC_LINKING_ONLY   /* FSE_encodeSymbol */
-#include "../common/fse.h"
+#include "fse.h"
 #define HUF_STATIC_LINKING_ONLY
-#include "../common/huf.h"
+#include "huf.h"
 #include "zstd_compress_internal.h"
 #include "zstd_compress_sequences.h"
 #include "zstd_compress_literals.h"

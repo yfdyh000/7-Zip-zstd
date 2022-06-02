@@ -55,20 +55,20 @@
 /*-*******************************************************
 *  Dependencies
 *********************************************************/
-#include "../common/zstd_deps.h"   /* ZSTD_memcpy, ZSTD_memmove, ZSTD_memset */
-#include "../common/mem.h"         /* low level memory routines */
+#include "zstd_deps.h"   /* ZSTD_memcpy, ZSTD_memmove, ZSTD_memset */
+#include "mem.h"         /* low level memory routines */
 #define FSE_STATIC_LINKING_ONLY
-#include "../common/fse.h"
+#include "fse.h"
 #define HUF_STATIC_LINKING_ONLY
-#include "../common/huf.h"
-#include "../common/xxhash.h" /* XXH64_reset, XXH64_update, XXH64_digest, XXH64 */
-#include "../common/zstd_internal.h"  /* blockProperties_t */
+#include "huf.h"
+#include "xxhash.h" /* XXH64_reset, XXH64_update, XXH64_digest, XXH64 */
+#include "zstd_internal.h"  /* blockProperties_t */
 #include "zstd_decompress_internal.h"   /* ZSTD_DCtx */
 #include "zstd_ddict.h"  /* ZSTD_DDictDictContent */
 #include "zstd_decompress_block.h"   /* ZSTD_decompressBlock_internal */
 
 #if defined(ZSTD_LEGACY_SUPPORT) && (ZSTD_LEGACY_SUPPORT>=1)
-#  include "../legacy/zstd_legacy.h"
+#  include "zstd_legacy.h"
 #endif
 
 

@@ -15,17 +15,17 @@
 /* **************************************************************
 *  Includes
 ****************************************************************/
-#include "../common/compiler.h"
-#include "../common/mem.h"        /* U32, U16, etc. */
-#include "../common/debug.h"      /* assert, DEBUGLOG */
+#include "compiler.h"
+#include "mem.h"        /* U32, U16, etc. */
+#include "debug.h"      /* assert, DEBUGLOG */
 #include "hist.h"       /* HIST_count_wksp */
-#include "../common/bitstream.h"
+#include "bitstream.h"
 #define FSE_STATIC_LINKING_ONLY
-#include "../common/fse.h"
-#include "../common/error_private.h"
+#include "fse.h"
+#include "error_private.h"
 #define ZSTD_DEPS_NEED_MALLOC
 #define ZSTD_DEPS_NEED_MATH64
-#include "../common/zstd_deps.h"  /* ZSTD_malloc, ZSTD_free, ZSTD_memcpy, ZSTD_memset */
+#include "zstd_deps.h"  /* ZSTD_malloc, ZSTD_free, ZSTD_memcpy, ZSTD_memset */
 
 
 /* **************************************************************

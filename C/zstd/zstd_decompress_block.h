@@ -15,9 +15,9 @@
 /*-*******************************************************
  *  Dependencies
  *********************************************************/
-#include "../common/zstd_deps.h"   /* size_t */
-#include "../zstd.h"    /* DCtx, and some public functions */
-#include "../common/zstd_internal.h"  /* blockProperties_t, and some public functions */
+#include "zstd_deps.h"   /* size_t */
+#include "zstd.h"    /* DCtx, and some public functions */
+#include "zstd_internal.h"  /* blockProperties_t, and some public functions */
 #include "zstd_decompress_internal.h"  /* ZSTD_seqSymbol */
 
 
