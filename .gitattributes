@@ -19,3 +19,5 @@
 *.inf text eol=crlf
 *.nsi text eol=crlf
 *.wxs text eol=crlf
+
+*.sh text eol=lf
