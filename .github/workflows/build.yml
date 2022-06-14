@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  PROJECT_NAME: 7-Zip-zstd
+  
+jobs:
+  build:
+    strategy:
+      matrix:
+        ARCH: [x86, x64, x64_arm, x64_arm64]
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/setup-dotnet@v1
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: ${{ matrix.ARCH }}
+
+      - name: Generate Version
+        id: versioning
+        uses: sceccotti89/Github-Action-Versioning@v1.0.5
+        env:
+          BUILD_VERSION: ${{ steps.versioning.outputs.version }}
+        
+      - uses: actions/checkout@v3
+      
+      - name: Build
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        run: CPP\GitHubActions.cmd
