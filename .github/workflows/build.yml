@@ -35,3 +35,9 @@ jobs:
           ARCH: ${{ matrix.ARCH }}
           BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         run: CPP\GitHubActions.cmd
+
+      - name: Release
+        uses: fnkr/github-action-ghr@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
