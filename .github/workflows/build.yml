@@ -18,6 +18,10 @@ jobs:
 
     steps:
       - uses: actions/setup-dotnet@v1
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        #env:
+        #  arch: ${{ matrix.ARCH }}
 
       - name: Generate Version
         id: versioning
