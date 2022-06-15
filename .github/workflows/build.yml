@@ -37,19 +37,27 @@ jobs:
           BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         run: |
           CPP\GitHubActions.cmd
-          CPP\build.bat ${{ matrix.FileCode }}
+          CPP\build-it.cmd ${{ matrix.FileCode }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.ARCH }}-${{ matrix.FileCode }}
+          path: bin-*-%ARCH%
           
   pack:
     needs: build
     runs-on: windows-latest
     steps:
+      - uses: actions/download-artifact@v3.0.0
+        with:
+          name: ${{ matrix.ARCH }}-${{ matrix.FileCode }}
+          path: bin-*-${{ matrix.ARCH }}
       - name: pack
         env:
           ARCH: ${{ matrix.ARCH }}
           BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         run: |
           cd %GITHUB_WORKSPACE%
-          7z a %PROJECT_NAME%-%ARCH%-%BUILD_VERSION%.7z bin-* *.txt
+          7z a %PROJECT_NAME%-%ARCH%-%BUILD_VERSION%.7z bin-*-%ARCH% *.txt
 
       - uses: actions/upload-artifact@v3
         with:
