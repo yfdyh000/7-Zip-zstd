@@ -25,10 +25,4 @@ goto build_vs
 :build_vs
 set PATH=%OPATH%
 call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat" %ARCH%
-call build-it.cmd
-
-goto end
-
-:end
-cd %GITHUB_WORKSPACE%
-7z a %PROJECT_NAME%-%ARCH%-%BUILD_VERSION%.7z bin-* *.txt
+rem call build-it.cmd

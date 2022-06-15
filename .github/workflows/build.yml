@@ -16,6 +16,7 @@ jobs:
     strategy:
       matrix:
         ARCH: [x86, x64, x64_arm, x64_arm64]
+        FileCode: [7zxa, 7za, 7z, 7zFM, 7zG, 7zip, sfx, brotli, lizard, lz4, lz5, zstd, flzma2, Install, Uninstall, 7z, 7zCon, 7za]
     runs-on: windows-latest
 
     steps:
@@ -34,14 +35,28 @@ jobs:
         env:
           ARCH: ${{ matrix.ARCH }}
           BUILD_VERSION: ${{ steps.versioning.outputs.version }}
-        run: CPP\GitHubActions.cmd
+        run: |
+          CPP\GitHubActions.cmd
+          CPP\build.bat ${{ matrix.FileCode }}
+          
+  pack:
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - name: pack
+        env:
+          ARCH: ${{ matrix.ARCH }}
+          BUILD_VERSION: ${{ steps.versioning.outputs.version }}
+        run: |
+          cd %GITHUB_WORKSPACE%
+          7z a %PROJECT_NAME%-%ARCH%-%BUILD_VERSION%.7z bin-* *.txt
 
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.ARCH }}
           path: "*.7z"
   release:
-    needs: build
+    needs: pack
     name: Release
     runs-on: ubuntu-latest
     steps:
