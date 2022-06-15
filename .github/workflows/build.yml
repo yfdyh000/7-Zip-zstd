@@ -8,8 +8,8 @@ on:
 
 env:
   PROJECT_NAME: 7-Zip-zstd
-  VC: 17.0
-  SUBSYS: 6.02
+  VC: "17.0"
+  SUBSYS: "6.02"
   
 jobs:
   build:
@@ -33,9 +33,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            "**/*.exp"
-            "**/*.pch"
-            "**/*.obj"
+            "${{env.GITHUB_WORKSPACE}}/**/*.exp"
+            "${{env.GITHUB_WORKSPACE}}/**/*.pch"
+            "${{env.GITHUB_WORKSPACE}}/**/*.obj"
           key: ${{ runner.os }}-${{ matrix.ARCH }}-${{ env.VC }}
 
       - name: Build
