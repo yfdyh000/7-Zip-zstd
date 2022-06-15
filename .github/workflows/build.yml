@@ -52,5 +52,5 @@ jobs:
         uses: fnkr/github-action-ghr@v1
         if: startsWith(github.ref, 'refs/tags/')
         env:
-          GHR_PATH: "**.7z"
+          GHR_PATH: "/home/runner/work/**.7z"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
