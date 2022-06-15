@@ -29,19 +29,21 @@ jobs:
         
       - uses: actions/checkout@v3
 
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            "**/*.exp"
+            "**/*.pch"
+            "**/*.obj"
+          key: ${{ runner.os }}-${{ matrix.ARCH }}-${{ env.VC }}
+
       - name: Build
         working-directory: ${{env.GITHUB_WORKSPACE}}
         env:
           ARCH: ${{ matrix.ARCH }}
           BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         run: CPP\GitHubActions.cmd
-
-      - name: Cache obj
-        id: cache-obj
-        uses: actions/cache@v3
-        with:
-          path: "**.obj"
-          key: ${{ runner.os }}-${{ matrix.ARCH }}-${{ env.VC }}
 
       - uses: actions/upload-artifact@v3
         with:
