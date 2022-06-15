@@ -22,17 +22,16 @@ jobs:
       - uses: actions/setup-dotnet@v1
       - name: Set up Visual Studio shell
         uses: egor-tensin/vs-shell@v2
-        #env:
-        #  arch: ${{ matrix.ARCH }}
 
       - name: Generate Version
         id: versioning
         uses: sceccotti89/Github-Action-Versioning@v1.0.5
-        env:
-          BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         
       - uses: actions/checkout@v3
       
       - name: Build
         working-directory: ${{env.GITHUB_WORKSPACE}}
+        env:
+          ARCH: ${{ matrix.ARCH }}
+          BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         run: CPP\GitHubActions.cmd
