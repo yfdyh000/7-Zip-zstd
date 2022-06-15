@@ -50,10 +50,10 @@ jobs:
         run: ls -R
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        #if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            /home/runner/work/x86/*.7z
-            /home/runner/work/x64/*.7z
-            /home/runner/work/x64_arm/*.7z
-            /home/runner/work/x64_arm64/*.7z
+            ./x86/*.7z
+            ./x64/*.7z
+            ./x64_arm/*.7z
+            ./x64_arm64/*.7z
