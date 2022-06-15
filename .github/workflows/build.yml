@@ -36,8 +36,13 @@ jobs:
           BUILD_VERSION: ${{ steps.versioning.outputs.version }}
         run: CPP\GitHubActions.cmd
 
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
       - name: Release
         uses: fnkr/github-action-ghr@v1
         if: startsWith(github.ref, 'refs/tags/')
         env:
+          GHR_PATH: *.7z
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
