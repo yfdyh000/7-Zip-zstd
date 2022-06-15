@@ -41,7 +41,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.ARCH }}-${{ matrix.FileCode }}
-          path: bin-*-${{ matrix.ARCH }}/*
+          path: bin-${{env.VC}}-${{ matrix.ARCH }}/*
           
   pack:
     needs: build
