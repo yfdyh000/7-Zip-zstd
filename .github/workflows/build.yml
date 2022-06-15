@@ -34,7 +34,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: "**.obj"
-          key: ${{ runner.os }}-${{ matrix.ARCH }}
+          key: ${{ runner.os }}-${{ matrix.ARCH }}-${{ env.VC }}
 
       - name: Build
         working-directory: ${{env.GITHUB_WORKSPACE}}
